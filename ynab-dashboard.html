@@ -25,9 +25,8 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: var(--body); min-height: 100vh; }
 
-  /* ── screens ── */
-  #screen-token { min-height: 100vh; display: none; align-items: center; justify-content: center; padding: 2rem; }
-  #screen-token.active { display: flex; }
+  #screen-login { min-height: 100vh; display: none; align-items: center; justify-content: center; padding: 2rem; }
+  #screen-login.active { display: flex; }
   #spinner { min-height: 100vh; display: none; align-items: center; justify-content: center; }
   #spinner.active { display: flex; }
   #screen-picker { min-height: 100vh; display: none; padding: 2rem; }
@@ -35,39 +34,25 @@
   #screen-dash { display: none; min-height: 100vh; padding: 40px 36px 56px; max-width: 640px; margin: 0 auto; }
   #screen-dash.active { display: block; }
 
-  /* ── token screen ── */
-  .token-box { width: 100%; max-width: 400px; }
+  /* login */
+  .login-box { width: 100%; max-width: 400px; }
   .logo { font-family: var(--digit); font-size: 12px; letter-spacing: 0.18em; color: var(--dim); margin-bottom: 2.5rem; }
   .logo span { color: var(--accent); }
-  .big-title { font-family: var(--digit); font-size: 26px; font-weight: 400; color: var(--text); margin-bottom: 10px; line-height: 1.3; letter-spacing: 0.04em; }
-  .sub { font-size: 15px; color: var(--muted); margin-bottom: 2.5rem; line-height: 1.7; font-family: var(--body); }
-  .field-label { font-family: var(--digit); font-size: 10px; letter-spacing: 0.14em; color: var(--muted); display: block; margin-bottom: 8px; }
-  input[type=password], select {
-    width: 100%; background: var(--surface); border: 0.5px solid var(--border2);
-    border-radius: 5px; padding: 11px 14px; font-size: 14px;
-    font-family: var(--digit); color: var(--text); outline: none;
-    transition: border-color 0.2s; margin-bottom: 14px;
-    -webkit-appearance: none; appearance: none;
-  }
-  input:focus, select:focus { border-color: var(--accent); }
-  input::placeholder { color: var(--dim); }
-  .btn-primary {
-    width: 100%; background: var(--accent); border: none; border-radius: 5px;
-    padding: 12px; font-size: 13px; font-family: var(--digit);
-    color: #0a2e22; cursor: pointer; transition: opacity 0.2s; letter-spacing: 0.08em;
-  }
+  .big-title { font-family: var(--digit); font-size: 26px; color: var(--text); margin-bottom: 10px; line-height: 1.3; letter-spacing: 0.04em; }
+  .sub { font-size: 15px; color: var(--muted); margin-bottom: 2.5rem; line-height: 1.7; }
+  .btn-primary { width: 100%; background: var(--accent); border: none; border-radius: 5px; padding: 14px; font-size: 13px; font-family: var(--digit); color: #0a2e22; cursor: pointer; transition: opacity 0.2s; letter-spacing: 0.1em; }
   .btn-primary:hover { opacity: 0.88; }
   .btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }
-  .err { font-size: 12px; color: var(--red); margin-top: 10px; display: none; font-family: var(--digit); }
+  .err { font-size: 12px; color: var(--red); margin-top: 12px; display: none; font-family: var(--digit); }
   .hint { font-family: var(--digit); font-size: 11px; color: var(--dim); margin-top: 18px; line-height: 1.8; }
 
-  /* ── spinner ── */
+  /* spinner */
   .spinner { width: 20px; height: 20px; border: 1px solid var(--border2); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ── picker ── */
+  /* picker */
   .picker-wrap { max-width: 460px; margin: 0 auto; padding-top: 2rem; }
-  .picker-title { font-family: var(--digit); font-size: 20px; font-weight: 400; margin-bottom: 6px; letter-spacing: 0.06em; color: var(--text); }
+  .picker-title { font-family: var(--digit); font-size: 20px; color: var(--text); margin-bottom: 6px; letter-spacing: 0.06em; }
   .picker-sub { font-size: 14px; color: var(--muted); margin-bottom: 2rem; line-height: 1.7; }
   .picker-group { margin-bottom: 24px; }
   .picker-group-name { font-family: var(--digit); font-size: 10px; letter-spacing: 0.16em; color: var(--dim); margin-bottom: 8px; }
@@ -83,7 +68,7 @@
   .btn-secondary:hover { border-color: var(--muted); color: var(--text); }
   .btn-save { flex: 2; }
 
-  /* ── dashboard ── */
+  /* dashboard */
   .dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 0.5px solid var(--border); }
   .dash-month { font-family: var(--digit); font-size: 13px; letter-spacing: 0.16em; color: var(--muted); }
   .dash-right { text-align: right; }
@@ -91,17 +76,15 @@
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.2} }
   .live-txt { font-family: var(--digit); font-size: 10px; color: var(--dim); letter-spacing: 0.14em; }
   .dash-updated { font-family: var(--digit); font-size: 10px; color: var(--dim); margin-top: 4px; }
-
   .dash-group { margin-bottom: 36px; }
   .dash-group-name { font-family: var(--digit); font-size: 10px; letter-spacing: 0.18em; color: var(--dim); margin-bottom: 14px; }
   .cat-row { display: flex; justify-content: space-between; align-items: baseline; padding: 13px 0; border-bottom: 0.5px solid var(--vdim); }
   .cat-row:last-child { border-bottom: none; }
-  .cat-name { font-family: var(--body); font-size: 17px; font-weight: 400; color: var(--muted); letter-spacing: 0.02em; }
+  .cat-name { font-family: var(--body); font-size: 17px; color: var(--muted); letter-spacing: 0.02em; }
   .cat-bal { font-family: var(--digit); font-size: 26px; letter-spacing: 0.04em; color: var(--text); }
   .cat-bal.low { color: var(--yellow); }
   .cat-bal.neg { color: var(--red); }
   .cat-bal.zero { color: var(--dim); }
-
   .dash-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 0.5px solid var(--border); }
   .btn-ghost { background: transparent; border: 0.5px solid var(--border); border-radius: 4px; padding: 6px 14px; font-size: 10px; font-family: var(--digit); color: var(--dim); cursor: pointer; letter-spacing: 0.1em; transition: color 0.2s, border-color 0.2s; }
   .btn-ghost:hover { color: var(--muted); border-color: var(--border2); }
@@ -109,21 +92,15 @@
 </head>
 <body>
 
-<!-- Token screen -->
-<div id="screen-token" class="active">
-  <div class="token-box">
+<!-- Login screen -->
+<div id="screen-login" class="active">
+  <div class="login-box">
     <div class="logo">BUDGET <span>DISPLAY</span></div>
     <h1 class="big-title">Your budget,<br>always visible.</h1>
-    <p class="sub">Connect your YNAB account and choose exactly which categories to show.</p>
-    <label class="field-label">PERSONAL ACCESS TOKEN</label>
-    <input type="password" id="token-input" placeholder="Paste your YNAB token..." autocomplete="off" />
-    <div id="budget-wrap" style="display:none;">
-      <label class="field-label">SELECT BUDGET</label>
-      <select id="budget-select"></select>
-    </div>
-    <button class="btn-primary" id="connect-btn" onclick="handleConnect()">CONNECT TO YNAB</button>
+    <p class="sub">Sign in with your YNAB account to display your category balances as an always-on dashboard.</p>
+    <button class="btn-primary" id="signin-btn" onclick="startOAuth()">SIGN IN WITH YNAB</button>
     <div class="err" id="err-msg"></div>
-    <p class="hint">app.ynab.com → Account Settings → Developer Settings → New Token</p>
+    <p class="hint">You'll be redirected to YNAB to approve access,<br>then sent straight back here.</p>
   </div>
 </div>
 
@@ -158,201 +135,252 @@
   <div class="dash-footer">
     <button class="btn-ghost" onclick="loadData()">REFRESH</button>
     <button class="btn-ghost" onclick="goToPicker()">EDIT CATEGORIES</button>
-    <button class="btn-ghost" onclick="logout()">DISCONNECT</button>
+    <button class="btn-ghost" onclick="logout()">SIGN OUT</button>
   </div>
 </div>
 
 <script>
-const BASE = 'https://api.ynab.com/v1';
-let token = '', budgetId = '';
-let allCategories = [];
-let selectedIds = new Set();
-let refreshTimer = null;
-const REFRESH_MS = 30 * 60 * 1000;
+  const CLIENT_ID = 'vajVgE4OvxEiqyhOGcSLgN86KUeuX2kDHwGF96f8hTI';
+  const REDIRECT_URI = 'https://dcriggs21.github.io/budget-display/ynab-dashboard.html';
+  const BASE = 'https://api.ynab.com/v1';
 
-function show(id) {
-  ['screen-token','screen-picker','screen-dash','spinner'].forEach(s => {
-    document.getElementById(s).classList.remove('active');
-  });
-  document.getElementById(id).classList.add('active');
-}
+  let token = '';
+  let budgetId = '';
+  let allCategories = [];
+  let selectedIds = new Set();
+  let refreshTimer = null;
+  const REFRESH_MS = 30 * 60 * 1000;
 
-function fmt(mu) {
-  const v = mu / 1000;
-  const abs = Math.abs(v);
-  return (v < 0 ? '-$' : '$') + abs.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
+  function show(id) {
+    ['screen-login','screen-picker','screen-dash','spinner'].forEach(s => {
+      document.getElementById(s).classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+  }
 
-function balClass(mu, budgeted) {
-  if (mu === 0 && budgeted === 0) return 'zero';
-  if (mu < 0) return 'neg';
-  if (budgeted > 0 && (mu / budgeted) <= 0.2) return 'low';
-  return '';
-}
+  function fmt(mu) {
+    const v = mu / 1000;
+    const abs = Math.abs(v);
+    return (v < 0 ? '-$' : '$') + abs.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
 
-async function api(path) {
-  const r = await fetch(BASE + path, { headers: { Authorization: 'Bearer ' + token } });
-  if (!r.ok) { const e = await r.json().catch(()=>({})); throw new Error(e?.error?.detail || 'Error ' + r.status); }
-  return r.json();
-}
+  function balClass(mu, budgeted) {
+    if (mu === 0 && budgeted === 0) return 'zero';
+    if (mu < 0) return 'neg';
+    if (budgeted > 0 && (mu / budgeted) <= 0.2) return 'low';
+    return '';
+  }
 
-function showErr(msg) {
-  const el = document.getElementById('err-msg');
-  el.textContent = msg; el.style.display = 'block';
-}
+  function stripEmoji(str) {
+    return str.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FEFF}]/gu, '').trim();
+  }
 
-async function handleConnect() {
-  const t = document.getElementById('token-input').value.trim();
-  if (!t) { showErr('Please enter your token.'); return; }
-  token = t;
-  document.getElementById('err-msg').style.display = 'none';
-  const btn = document.getElementById('connect-btn');
-  btn.disabled = true; btn.textContent = 'CONNECTING...';
-  try {
+  async function api(path) {
+    const r = await fetch(BASE + path, { headers: { Authorization: 'Bearer ' + token } });
+    if (!r.ok) { const e = await r.json().catch(()=>({})); throw new Error(e?.error?.detail || 'Error ' + r.status); }
+    return r.json();
+  }
+
+  function startOAuth() {
+    const state = Math.random().toString(36).slice(2);
+    sessionStorage.setItem('oauth_state', state);
+    const url = `https://app.ynab.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&state=${state}`;
+    window.location.href = url;
+  }
+
+  function getHashParam(key) {
+    const hash = window.location.hash.slice(1);
+    const params = new URLSearchParams(hash);
+    return params.get(key);
+  }
+
+  async function init() {
+    const hashToken = getHashParam('access_token');
+    const hashState = getHashParam('state');
+    const savedState = sessionStorage.getItem('oauth_state');
+
+    if (hashToken) {
+      if (hashState && savedState && hashState !== savedState) {
+        showErr('State mismatch — please try signing in again.');
+        show('screen-login');
+        return;
+      }
+      token = hashToken;
+      sessionStorage.removeItem('oauth_state');
+      history.replaceState(null, '', window.location.pathname);
+      const saved = loadSavedPicks();
+      show('spinner');
+      try {
+        await loadBudget();
+        if (saved && saved.size > 0) {
+          selectedIds = saved;
+          await loadData();
+          show('screen-dash');
+          scheduleRefresh();
+        } else {
+          renderPicker();
+          show('screen-picker');
+        }
+      } catch(e) {
+        showErr(e.message);
+        show('screen-login');
+      }
+      return;
+    }
+
+    const savedToken = sessionStorage.getItem('ynab_token');
+    if (savedToken) {
+      token = savedToken;
+      const saved = loadSavedPicks();
+      show('spinner');
+      try {
+        await loadBudget();
+        if (saved && saved.size > 0) {
+          selectedIds = saved;
+          await loadData();
+          show('screen-dash');
+          scheduleRefresh();
+        } else {
+          renderPicker();
+          show('screen-picker');
+        }
+      } catch(e) {
+        sessionStorage.removeItem('ynab_token');
+        show('screen-login');
+      }
+      return;
+    }
+
+    show('screen-login');
+  }
+
+  function showErr(msg) {
+    const el = document.getElementById('err-msg');
+    el.textContent = msg; el.style.display = 'block';
+  }
+
+  async function loadBudget() {
     const data = await api('/budgets?include_accounts=false');
     const budgets = data.data.budgets;
     if (!budgets.length) throw new Error('No budgets found.');
-    if (budgets.length === 1) {
-      budgetId = budgets[0].id;
-      await loadCategoriesForPicker();
-    } else {
-      const sel = document.getElementById('budget-select');
-      sel.innerHTML = budgets.map(b => `<option value="${b.id}">${b.name}</option>`).join('');
-      budgetId = budgets[0].id;
-      sel.onchange = () => { budgetId = sel.value; };
-      document.getElementById('budget-wrap').style.display = 'block';
-      btn.textContent = 'CONTINUE'; btn.disabled = false;
-      btn.onclick = loadCategoriesForPicker;
-    }
-  } catch(e) {
-    showErr(e.message);
-    btn.disabled = false; btn.textContent = 'CONNECT TO YNAB';
+    budgetId = budgets[0].id;
+    sessionStorage.setItem('ynab_token', token);
+    sessionStorage.setItem('ynab_budget_id', budgetId);
+    const cats = await api(`/budgets/${budgetId}/months/current`);
+    allCategories = (cats.data.month.categories || []).filter(c => !c.hidden && !c.deleted);
   }
-}
 
-async function loadCategoriesForPicker() {
-  show('spinner');
-  try {
-    const data = await api(`/budgets/${budgetId}/months/current`);
-    allCategories = (data.data.month.categories || []).filter(c => !c.hidden && !c.deleted);
-    selectedIds = new Set(allCategories.map(c => c.id));
+  function loadSavedPicks() {
+    const raw = localStorage.getItem('budget_selected_ids');
+    if (!raw) return null;
+    try { return new Set(JSON.parse(raw)); } catch { return null; }
+  }
+
+  function savePicks() {
+    if (!selectedIds.size) { alert('Pick at least one category.'); return; }
+    localStorage.setItem('budget_selected_ids', JSON.stringify([...selectedIds]));
+    show('spinner');
+    loadData().then(() => {
+      show('screen-dash');
+      scheduleRefresh();
+    });
+  }
+
+  function renderPicker() {
+    const groups = {};
+    allCategories.forEach(c => {
+      const g = stripEmoji(c.category_group_name || 'Other');
+      if (!groups[g]) groups[g] = [];
+      groups[g].push(c);
+    });
+    if (!selectedIds.size) selectedIds = new Set(allCategories.map(c => c.id));
+    const list = document.getElementById('picker-list');
+    list.innerHTML = '';
+    Object.entries(groups).forEach(([gname, cats]) => {
+      const sec = document.createElement('div');
+      sec.className = 'picker-group';
+      sec.innerHTML = `<div class="picker-group-name">${gname}</div>`;
+      cats.forEach(c => {
+        const cleanName = stripEmoji(c.name);
+        const row = document.createElement('div');
+        row.className = 'picker-item';
+        const checked = selectedIds.has(c.id);
+        row.innerHTML = `<div class="check-box ${checked ? 'checked' : ''}"></div><span class="picker-name">${cleanName}</span>`;
+        row.onclick = () => {
+          const box = row.querySelector('.check-box');
+          if (selectedIds.has(c.id)) { selectedIds.delete(c.id); box.classList.remove('checked'); }
+          else { selectedIds.add(c.id); box.classList.add('checked'); }
+        };
+        sec.appendChild(row);
+      });
+      list.appendChild(sec);
+    });
+  }
+
+  function selectAll() {
+    allCategories.forEach(c => selectedIds.add(c.id));
+    renderPicker();
+  }
+
+  async function loadData() {
+    try {
+      const data = await api(`/budgets/${budgetId}/months/current`);
+      renderDash(data.data.month);
+    } catch(e) { console.error(e); }
+  }
+
+  function renderDash(month) {
+    const d = new Date(month.month + 'T12:00:00');
+    document.getElementById('dash-month').textContent =
+      d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }).toUpperCase();
+    document.getElementById('dash-updated').textContent =
+      new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+
+    const cats = (month.categories || []).filter(c => !c.hidden && !c.deleted && selectedIds.has(c.id));
+    const groups = {};
+    cats.forEach(c => {
+      const g = stripEmoji(c.category_group_name || 'Other');
+      if (!groups[g]) groups[g] = [];
+      groups[g].push(c);
+    });
+
+    const container = document.getElementById('dash-cats');
+    container.innerHTML = '';
+    Object.entries(groups).forEach(([gname, gcats]) => {
+      const sec = document.createElement('div');
+      sec.className = 'dash-group';
+      sec.innerHTML = `<div class="dash-group-name">${gname}</div>`;
+      gcats.forEach(c => {
+        const row = document.createElement('div');
+        row.className = 'cat-row';
+        row.innerHTML = `<span class="cat-name">${stripEmoji(c.name)}</span><span class="cat-bal ${balClass(c.balance, c.budgeted)}">${fmt(c.balance)}</span>`;
+        sec.appendChild(row);
+      });
+      container.appendChild(sec);
+    });
+  }
+
+  function scheduleRefresh() {
+    if (refreshTimer) clearInterval(refreshTimer);
+    refreshTimer = setInterval(loadData, REFRESH_MS);
+  }
+
+  function goToPicker() {
+    if (refreshTimer) clearInterval(refreshTimer);
     renderPicker();
     show('screen-picker');
-  } catch(e) {
-    show('screen-token');
-    showErr(e.message);
   }
-}
 
-function stripEmoji(str) {
-  return str.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FEFF}]/gu, '').trim();
-}
+  function logout() {
+    token = ''; budgetId = '';
+    if (refreshTimer) clearInterval(refreshTimer);
+    sessionStorage.removeItem('ynab_token');
+    sessionStorage.removeItem('ynab_budget_id');
+    localStorage.removeItem('budget_selected_ids');
+    show('screen-login');
+  }
 
-function renderPicker() {
-  const groups = {};
-  allCategories.forEach(c => {
-    const g = stripEmoji(c.category_group_name || 'Other');
-    if (!groups[g]) groups[g] = [];
-    groups[g].push(c);
-  });
-  const list = document.getElementById('picker-list');
-  list.innerHTML = '';
-  Object.entries(groups).forEach(([gname, cats]) => {
-    const sec = document.createElement('div');
-    sec.className = 'picker-group';
-    sec.innerHTML = `<div class="picker-group-name">${gname}</div>`;
-    cats.forEach(c => {
-      const cleanName = stripEmoji(c.name);
-      const row = document.createElement('div');
-      row.className = 'picker-item';
-      const checked = selectedIds.has(c.id);
-      row.innerHTML = `<div class="check-box ${checked ? 'checked' : ''}" data-id="${c.id}"></div><span class="picker-name">${cleanName}</span>`;
-      row.onclick = () => {
-        const box = row.querySelector('.check-box');
-        if (selectedIds.has(c.id)) { selectedIds.delete(c.id); box.classList.remove('checked'); }
-        else { selectedIds.add(c.id); box.classList.add('checked'); }
-      };
-      sec.appendChild(row);
-    });
-    list.appendChild(sec);
-  });
-}
-
-function selectAll() {
-  allCategories.forEach(c => selectedIds.add(c.id));
-  renderPicker();
-}
-
-async function savePicks() {
-  if (!selectedIds.size) { alert('Pick at least one category.'); return; }
-  show('spinner');
-  await loadData();
-  show('screen-dash');
-  scheduleRefresh();
-}
-
-async function loadData() {
-  try {
-    const data = await api(`/budgets/${budgetId}/months/current`);
-    renderDash(data.data.month);
-  } catch(e) { console.error(e); }
-}
-
-function renderDash(month) {
-  const d = new Date(month.month + 'T12:00:00');
-  document.getElementById('dash-month').textContent =
-    d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }).toUpperCase();
-  document.getElementById('dash-updated').textContent =
-    new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-
-  const cats = (month.categories || []).filter(c => !c.hidden && !c.deleted && selectedIds.has(c.id));
-  const groups = {};
-  cats.forEach(c => {
-    const g = stripEmoji(c.category_group_name || 'Other');
-    if (!groups[g]) groups[g] = [];
-    groups[g].push(c);
-  });
-
-  const container = document.getElementById('dash-cats');
-  container.innerHTML = '';
-  Object.entries(groups).forEach(([gname, gcats]) => {
-    const sec = document.createElement('div');
-    sec.className = 'dash-group';
-    sec.innerHTML = `<div class="dash-group-name">${gname}</div>`;
-    gcats.forEach(c => {
-      const row = document.createElement('div');
-      row.className = 'cat-row';
-      row.innerHTML = `
-        <span class="cat-name">${stripEmoji(c.name)}</span>
-        <span class="cat-bal ${balClass(c.balance, c.budgeted)}">${fmt(c.balance)}</span>
-      `;
-      sec.appendChild(row);
-    });
-    container.appendChild(sec);
-  });
-}
-
-function scheduleRefresh() {
-  if (refreshTimer) clearInterval(refreshTimer);
-  refreshTimer = setInterval(loadData, REFRESH_MS);
-}
-
-function goToPicker() {
-  if (refreshTimer) clearInterval(refreshTimer);
-  renderPicker();
-  show('screen-picker');
-}
-
-function logout() {
-  token = ''; budgetId = '';
-  if (refreshTimer) clearInterval(refreshTimer);
-  document.getElementById('token-input').value = '';
-  const btn = document.getElementById('connect-btn');
-  btn.textContent = 'CONNECT TO YNAB'; btn.disabled = false; btn.onclick = handleConnect;
-  document.getElementById('budget-wrap').style.display = 'none';
-  document.getElementById('err-msg').style.display = 'none';
-  show('screen-token');
-}
+  init();
 </script>
 </body>
 </html>
